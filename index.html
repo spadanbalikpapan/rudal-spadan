@@ -1,0 +1,540 @@
+HTML
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+
+<title>RUDAL SPADAN</title>
+
+<style>
+
+/* ===== ANIMASI ===== */
+
+@keyframes muncul{
+from{
+opacity:0;
+transform:translateY(25px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@keyframes spin{
+0%{transform:rotate(0deg);}
+100%{transform:rotate(360deg);}
+}
+
+/* ===== BODY ===== */
+
+body{
+
+margin:0;
+
+font-family:Segoe UI,sans-serif;
+
+background:#eef3ff;
+
+padding-bottom:85px;
+
+}
+
+/* ===== LOADING ===== */
+
+#loading{
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100%;
+
+background:white;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+z-index:9999;
+
+}
+
+.spinner{
+
+width:55px;
+
+height:55px;
+
+border:5px solid #ddd;
+
+border-top:5px solid #0066ff;
+
+border-radius:50%;
+
+animation:spin 1s linear infinite;
+
+margin-bottom:15px;
+
+}
+
+/* ===== HEADER ===== */
+
+.header{
+
+background:linear-gradient(135deg,#003d99,#0066ff,#00a2ff);
+
+padding:18px;
+
+border-bottom-left-radius:30px;
+
+border-bottom-right-radius:30px;
+
+box-shadow:0 8px 25px rgba(0,0,0,.2);
+
+text-align:center;
+
+}
+
+.logo{
+
+width:95%;
+
+max-width:480px;
+
+height:auto;
+
+display:block;
+
+margin:auto;
+
+background:white;
+
+padding:10px;
+
+border-radius:25px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.25);
+
+}
+
+.judul{
+
+color:white;
+
+font-size:16px;
+
+font-weight:700;
+
+margin-top:12px;
+
+}
+#jam{
+
+font-size:18px;
+
+margin-top:10px;
+
+font-weight:800;
+
+}
+/* ===== TULISAN BERJALAN ===== */
+
+.marquee{
+
+margin:18px;
+
+background:white;
+
+padding:12px;
+
+border-radius:20px;
+
+font-weight:700;
+
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+
+font-size:15px;
+
+}
+/* ===== MENU ===== */
+
+.menu{
+
+display:grid;
+
+grid-template-columns:repeat(2,1fr);
+
+gap:18px;
+
+padding:20px;
+
+max-width:700px;
+
+margin:auto;
+
+}
+
+/* ===== BOX ===== */
+
+.box{
+
+background:white;
+
+border-radius:25px;
+
+padding:28px 15px;
+
+text-align:center;
+
+font-weight:800;
+
+font-size:18px;
+
+box-shadow:0 8px 20px rgba(0,0,0,.12);
+
+cursor:pointer;
+
+position:relative;
+
+overflow:hidden;
+
+animation:muncul .6s ease forwards;
+
+opacity:0;
+
+transition:.3s;
+
+}
+
+.box:nth-child(1){animation-delay:.1s;}
+.box:nth-child(2){animation-delay:.2s;}
+.box:nth-child(3){animation-delay:.3s;}
+.box:nth-child(4){animation-delay:.4s;}
+.box:nth-child(5){animation-delay:.5s;}
+.box:nth-child(6){animation-delay:.6s;}
+
+.box:hover{
+
+transform:translateY(-4px);
+
+}
+
+.box:active{
+
+transform:scale(.95);
+
+}
+
+.box:nth-child(1){border-top:5px solid #ff6b6b;}
+.box:nth-child(2){border-top:5px solid #4dabf7;}
+.box:nth-child(3){border-top:5px solid #ffd43b;}
+.box:nth-child(4){border-top:5px solid #69db7c;}
+.box:nth-child(5){border-top:5px solid #b197fc;}
+.box:nth-child(6){border-top:5px solid #339af0;}
+
+/* ===== ICON ===== */
+
+.icon{
+
+width:85px;
+
+height:85px;
+
+margin:auto;
+
+margin-bottom:20px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:42px;
+
+border-radius:50%;
+
+background:linear-gradient(135deg,#0084ff,#00d4ff);
+
+color:white;
+
+box-shadow:0 8px 20px rgba(0,0,0,.25);
+
+}
+
+/* ===== NAVBAR ===== */
+
+.navbar{
+
+position:fixed;
+
+bottom:0;
+
+left:0;
+
+width:100%;
+
+height:70px;
+
+background:white;
+
+display:flex;
+
+justify-content:space-around;
+
+align-items:center;
+
+box-shadow:0 -5px 15px rgba(0,0,0,.15);
+
+z-index:999;
+
+}
+
+.nav-item{
+
+text-align:center;
+
+font-size:13px;
+
+color:#777;
+
+cursor:pointer;
+
+transition:.2s;
+
+}
+
+.nav-item span{
+
+display:block;
+
+font-size:11px;
+
+margin-top:3px;
+
+}
+
+.nav-item.active{
+
+color:#0066ff;
+
+font-weight:800;
+
+transform:scale(1.1);
+
+}
+
+/* ===== DESKTOP ===== */
+
+@media(min-width:700px){
+
+.menu{
+
+grid-template-columns:repeat(3,1fr);
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- LOADING -->
+
+<div id="loading">
+
+<div class="spinner"></div>
+
+<p>Memuat Aplikasi...</p>
+
+</div>
+
+<!-- HEADER -->
+
+<div class="header">
+
+<img src="https://drive.google.com/thumbnail?id=17oWX4SkvFb8jw0xmWWlOBt1Na6OD5XgW" class="logo">
+
+<div class="judul">
+
+RUMAH DIGITAL APLIKASI SMPN 8 BALIKPAPAN
+
+<div id="jam"></div>
+
+</div>
+
+</div>
+<!-- TULISAN BERJALAN -->
+
+<div class="marquee">
+
+<marquee>
+
+🚀 Selamat Datang di RUDAL SPADAN | Rumah Digital Aplikasi SMPN 8 Balikpapan | Semangat Berkarya, Berprestasi, dan Berinovasi 🚀
+
+</marquee>
+
+</div>
+<!-- MENU -->
+
+<div class="menu">
+
+<div class="box" onclick="buka('https://script.google.com/macros/s/AKfycbwQ7HZPFVI1cCsxk526dceHqbY-dwz8IRU-XtK9sNOpdAhOMTpu3EjAOys2Gyh4Lfs/exec')">
+
+<div class="icon">🚀</div>
+
+ROKET SPADAN
+
+<br>
+
+(PRESENSI)
+
+</div>
+
+<div class="box" onclick="buka('https://script.google.com/macros/s/AKfycbwA89ExGOH4IVl4lmKBRfmw8K7rv9-5QFBzHbijEB2bnvAsuo_l5xOFLyTE3ChGbbB-/exec')">
+
+<div class="icon">📘</div>
+
+MERIAM SPADAN
+
+<br>
+
+(JURNAL)
+
+</div>
+
+<div class="box" onclick="buka('https://sites.google.com/guru.smp.belajar.id/sipanterkaih/halaman-muka')">
+
+<div class="icon">⭐</div>
+
+SIPANTER KAIH
+
+<br>
+
+(7 KAIH)
+
+</div>
+
+<div class="box" onclick="buka('')">
+
+<div class="icon">📊</div>
+
+REKAP KEHADIRAN SPADAN
+
+</div>
+
+<div class="box" onclick="buka('')">
+
+<div class="icon">📢</div>
+
+INFORMASI DIGITAL SPADAN
+
+</div>
+
+<div class="box" onclick="buka('')">
+
+<div class="icon">👤</div>
+
+PROFIL SMPN 8 BALIKPAPAN
+
+</div>
+
+</div>
+
+<!-- NAVBAR -->
+
+<div class="navbar">
+
+<div class="nav-item active" onclick="navKlik(this)">
+
+🏠
+
+<span>Home</span>
+
+</div>
+
+<div class="nav-item" onclick="scrollMenu();navKlik(this)">
+
+📋
+
+<span>Menu</span>
+
+</div>
+
+<div class="nav-item" onclick="buka('')">
+
+👤
+
+<span>Profil</span>
+
+</div>
+
+</div>
+
+<script>
+
+function buka(link){
+
+if(link){
+
+window.open(link,"_blank");
+
+}
+
+}
+
+function navKlik(el){
+
+let items=document.querySelectorAll('.nav-item');
+
+items.forEach(i=>i.classList.remove('active'));
+
+el.classList.add('active');
+
+}
+
+function scrollMenu(){
+
+document.querySelector('.menu').scrollIntoView({
+
+behavior:'smooth'
+
+});
+
+}
+function updateJam(){
+
+document.getElementById("jam").innerHTML=
+
+new Date().toLocaleTimeString("id-ID");
+
+}
+
+setInterval(updateJam,1000);
+
+updateJam();
+window.onload=function(){
+
+document.getElementById('loading').style.display='none';
+
+}
+
+</script>
+
+</body>
+</html>
