@@ -8,7 +8,9 @@ HTML
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
 
 <title>RUDAL SPADAN</title>
-
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0066ff">
+<link rel="apple-touch-icon" href="icon-192.png">
 <style>
 
 /* ===== ANIMASI ===== */
@@ -535,6 +537,14 @@ document.getElementById('loading').style.display='none';
 }
 
 </script>
-
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function () {
+    navigator.serviceWorker.register("./service-worker.js")
+      .then(() => console.log("Service Worker berhasil"))
+      .catch(err => console.log("Service Worker gagal:", err));
+  });
+}
+</script>
 </body>
 </html>
