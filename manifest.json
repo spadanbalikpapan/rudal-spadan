@@ -1,6 +1,7 @@
 {
   "name": "RUDAL SPADAN",
   "short_name": "SPADAN",
+  "id": "/rudal-spadan/",
   "description": "Rumah Digital Aplikasi SMPN 8 Balikpapan",
   "start_url": "./",
   "scope": "./",
