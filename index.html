@@ -1,4 +1,4 @@
-HTML
+Rumah Digital Aplikasi SMP NEGERI 8 BALIKPAPAN
 
 <!DOCTYPE html>
 <html>
@@ -135,14 +135,18 @@ font-weight:700;
 margin-top:12px;
 
 }
+#tanggal{
+font-size:14px;
+margin-top:15px;
+font-weight:600;
+color:#fff;
+}
+
 #jam{
-
-font-size:18px;
-
-margin-top:10px;
-
+font-size:28px;
 font-weight:800;
-
+color:#fff;
+margin-top:5px;
 }
 /* ===== TULISAN BERJALAN ===== */
 
@@ -336,20 +340,32 @@ grid-template-columns:repeat(3,1fr);
 <img src="https://drive.google.com/thumbnail?id=17oWX4SkvFb8jw0xmWWlOBt1Na6OD5XgW" class="logo">
 
 <div class="judul">
-<h2 style="margin:0;">RUDAL SPADAN</h2>
 
-<div style="font-size:16px;margin-top:8px;">
-Rumah Digital Aplikasi SMPN 8 Balikpapan
+<div style="font-size:22px;font-weight:700;">
+👋 Selamat Datang di
 </div>
 
+<h1 style="margin:10px 0 5px 0;font-size:32px;">
+RUDAL SPADAN
+</h1>
+
+<div style="font-size:16px;opacity:.9;">
+Rumah Digital Aplikasi
+<br>
+SMP NEGERI 8 Balikpapan
+</div>
+
+<div id="tanggal"></div>
 <div id="jam"></div>
-</div>
 
 </div>
+</div>
+
 <!-- TULISAN BERJALAN -->
+  
 <div class="marquee">
 <marquee>
-🚀 Selamat Datang di RUDAL SPADAN | Rumah Digital Aplikasi SMPN 8 Balikpapan | Semangat Berkarya, Berprestasi, dan Berinovasi 🚀
+🚀 Selamat Datang di RUDAL SPADAN | Rumah Digital Aplikasi SMPN 8 Balikpapan | Semangat Berkarya 🎨, Tangguh dalam prestasi 🏆, Luhur dalam akhlak 🤝, Cerdas berinovasi 🚀
 </marquee>
 </div>
 
@@ -498,9 +514,18 @@ behavior:'smooth'
 }
 function updateJam(){
 
-document.getElementById("jam").innerHTML=
+const sekarang = new Date();
 
-new Date().toLocaleTimeString("id-ID");
+document.getElementById("jam").innerHTML =
+sekarang.toLocaleTimeString("id-ID");
+
+document.getElementById("tanggal").innerHTML =
+sekarang.toLocaleDateString("id-ID",{
+weekday:'long',
+day:'numeric',
+month:'long',
+year:'numeric'
+});
 
 }
 
